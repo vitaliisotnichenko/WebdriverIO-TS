@@ -1,0 +1,31 @@
+{
+  "name": "webdriverio-ts",
+  "version": "1.0.0",
+  "private": "true",
+  "description": "Demo project",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run wdio.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitaliisotnichenko/WebdriverIO-TS.git"
+  },
+  "author": "Vitalii Sotnichenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vitaliisotnichenko/WebdriverIO-TS/issues"
+  },
+  "homepage": "https://github.com/vitaliisotnichenko/WebdriverIO-TS#readme",
+  "dependencies": {
+    "@wdio/cli": "^7.19.5",
+    "wdio": "^6.0.1"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^7.19.5",
+    "@wdio/mocha-framework": "^7.19.5",
+    "@wdio/spec-reporter": "^7.19.5",
+    "chromedriver": "^100.0.0",
+    "wdio-chromedriver-service": "^7.3.2"
+  }
+}
