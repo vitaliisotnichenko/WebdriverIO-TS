@@ -1,7 +1,7 @@
-const SecurePage = require("../pageobjects/secure.page");
+
 describe('Login app', () => {
     it('should login with valid credentials', async () => {
-        browser.url('/login');
+        await browser.url('/login');
         const inputUserName = $('#username');
         const inputPassword = $('#password');
         const btnSubmit = $('button');

@@ -1,4 +1,4 @@
-require("ts-node").register({ files: true })
+require("ts-node").register({ files: true });
 exports.config = {
     //
     // ====================
@@ -22,11 +22,11 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+    // 'path/to/excluded/files'
     ],
     //
     // ============
@@ -51,19 +51,18 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-    
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 5,
-        //
-        browserName: 'chrome',
-        acceptInsecureCerts: true
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-    }],
+            // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+            // grid with only 5 firefox instances available you can make sure that not more than
+            // 5 instances get started at a time.
+            maxInstances: 5,
+            //
+            browserName: 'chrome',
+            acceptInsecureCerts: true
+            // If outputDir is provided WebdriverIO can capture driver session logs
+            // it is possible to configure which logTypes to include/exclude.
+            // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+            // excludeDriverLogs: ['bugreport', 'server'],
+        }],
     //
     // ===================
     // Test Configurations
@@ -112,7 +111,6 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     services: ['chromedriver'],
-    
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -134,9 +132,6 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec'],
-
-
-    
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -240,8 +235,6 @@ exports.config = {
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
-
-
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
@@ -291,4 +284,5 @@ exports.config = {
     */
     // onReload: function(oldSessionId, newSessionId) {
     // }
-}
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoid2Rpby5jb25mLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vd2Rpby5jb25mLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sQ0FBQyxTQUFTLENBQUMsQ0FBQyxRQUFRLENBQUMsRUFBRSxLQUFLLEVBQUUsSUFBSSxFQUFFLENBQUMsQ0FBQTtBQUM1QyxPQUFPLENBQUMsTUFBTSxHQUFHO0lBQ2IsRUFBRTtJQUNGLHVCQUF1QjtJQUN2Qix1QkFBdUI7SUFDdkIsdUJBQXVCO0lBQ3ZCLEVBQUU7SUFDRixFQUFFO0lBQ0YscUJBQXFCO0lBQ3JCLHFCQUFxQjtJQUNyQixxQkFBcUI7SUFDckIsK0VBQStFO0lBQy9FLGdDQUFnQztJQUNoQyxFQUFFO0lBQ0YsOEVBQThFO0lBQzlFLGdGQUFnRjtJQUNoRixnRkFBZ0Y7SUFDaEYsa0VBQWtFO0lBQ2xFLEVBQUU7SUFDRiw0RkFBNEY7SUFDNUYscUZBQXFGO0lBQ3JGLDZCQUE2QjtJQUM3QixFQUFFO0lBQ0YsS0FBSyxFQUFFO1FBQ0gsc0JBQXNCO0tBQ3pCO0lBQ0QsdUJBQXVCO0lBQ3ZCLE9BQU8sRUFBRTtJQUNMLDJCQUEyQjtLQUM5QjtJQUNELEVBQUU7SUFDRixlQUFlO0lBQ2YsZUFBZTtJQUNmLGVBQWU7SUFDZix1RkFBdUY7SUFDdkYsbUZBQW1GO0lBQ25GLHVGQUF1RjtJQUN2RiwwREFBMEQ7SUFDMUQsRUFBRTtJQUNGLHFGQUFxRjtJQUNyRixtRkFBbUY7SUFDbkYscUZBQXFGO0lBQ3JGLHdGQUF3RjtJQUN4RixnRkFBZ0Y7SUFDaEYsdUNBQXVDO0lBQ3ZDLEVBQUU7SUFDRixZQUFZLEVBQUUsRUFBRTtJQUNoQixFQUFFO0lBQ0YsaUZBQWlGO0lBQ2pGLGtGQUFrRjtJQUNsRix1REFBdUQ7SUFDdkQsRUFBRTtJQUNGLFlBQVksRUFBRSxDQUFDO1lBRVgsdUZBQXVGO1lBQ3ZGLG9GQUFvRjtZQUNwRixxQ0FBcUM7WUFDckMsWUFBWSxFQUFFLENBQUM7WUFDZixFQUFFO1lB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
