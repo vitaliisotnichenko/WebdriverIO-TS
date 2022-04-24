@@ -1,4 +1,5 @@
 require("ts-node").register({ files: true })
+require('dotenv').config()
 exports.config = {
     //
     // ====================
@@ -22,7 +23,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/*.ts'
+        './test/specs/**/registration.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -95,7 +96,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://the-internet.herokuapp.com',
+    baseUrl: String(process.env.BASE_URL),
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
