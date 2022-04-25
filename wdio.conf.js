@@ -23,7 +23,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/registration.ts'
+        './test/specs/**/smoke.ts'
     ],
     // Patterns to exclude.
     exclude: [
