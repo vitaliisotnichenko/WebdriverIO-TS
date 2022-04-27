@@ -23,7 +23,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/smoke.ts'
+        './test/specs/**/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -143,7 +143,8 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        grep: process.env.MOCHA_GREP
     },
     //
     // =====
@@ -215,8 +216,9 @@ exports.config = {
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
+    beforeTest: async function (test, context) {
+        await browser.url('?controller=authentication&back=my-account');
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
@@ -239,8 +241,10 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        await browser.deleteAllCookies();
+        await browser.url('/');
+    },
 
 
     /**
