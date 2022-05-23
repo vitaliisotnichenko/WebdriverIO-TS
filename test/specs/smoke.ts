@@ -1,46 +1,31 @@
 import * as chai from "chai";
-import {beforeEach} from "mocha";
 const assert = chai.assert
 
 describe('App', () => {
     it('should login with valid credentials @smoke', async () => {
-        const inputUserEmail = $('#email');
-        const inputPassword = $('#passwd');
-        const btnSubmit = $('#SubmitLogin');
-        await inputUserEmail.setValue(String(process.env.USER_EMAIL));
+        const inputUserName = $('#user-name');
+        const inputPassword = $('#password');
+        const btnSubmit = $('#login-button');
+        await inputUserName.setValue(String(process.env.USER_NAME));
         await inputPassword.setValue(String(process.env.USER_PASSWORD));
         await btnSubmit.click();
-        const myAccountHeader = $('.page-heading');
-        assert.isOk(await myAccountHeader.isDisplayed());
-        assert.strictEqual(await myAccountHeader.getText(), 'MY ACCOUNT');
+        const menuButton = $('#menu_button_container');
+        const logoutButton = $('#logout_sidebar_link');
+        assert.isOk(await menuButton.isDisplayed());
+        assert.isOk(await logoutButton.isDisplayed())
     });
-    it('should not login with invalid credentials @smoke', async () => {
-        const inputUserEmail = $('#email');
-        const inputPassword = $('#passwd');
-        const btnSubmit = $('#SubmitLogin');
-        await inputUserEmail.setValue('test@com');
-        await inputPassword.setValue(String(process.env.USER_PASSWORD));
-        await btnSubmit.click();
-        const alertError =  $('.page-heading+.alert');
-        assert.isOk(await alertError.isDisplayed());
-    });
-
-    let dataCollection = [1, 2, 3, 4, 5, 6, 7];
+    let dataCollection = [1, 2, 3, 4, 5, 6];
     dataCollection.map(data => {
-        it.skip(`add item to the shopping cart @smoke`, async function () {
-            await browser.url('/');
-            const productSection =  $(`#homefeatured li:nth-child(${data}) .product-image-container img`);
-            const addToCardButton = $('#add_to_cart button')
-            await productSection.click();
-            const iframe = $('.fancybox-iframe')
-            await expect(iframe).toExist()
-            await browser.switchToFrame(iframe);
-            expect(addToCardButton).toBeClickable();
-            // await addToCardButton.waitForDisplayed({ timeout: 5000 } );
+        it(`add item to the shopping cart @smoke`, async function () {
+            const inputUserName = $('#user-name');
+            const inputPassword = $('#password');
+            const btnSubmit = $('#login-button');
+            await inputUserName.setValue(String(process.env.USER_NAME));
+            await inputPassword.setValue(String(process.env.USER_PASSWORD));
+            await btnSubmit.click();
+            const addToCardButton = $(`.inventory_list .inventory_item:nth-child(${data}) button`)
             await addToCardButton.click();
-            // await addToCartButton.click();
-            browser.switchToParentFrame();
-            assert.strictEqual(await $('.layer_cart_product h2').getText(),"Product successfully added to your shopping cart")
+            assert.isAbove(parseInt(await $('.shopping_cart_badge').getText()),0)
         })
     })
 })
