@@ -11,8 +11,8 @@ describe('App', () => {
         await btnSubmit.click();
         const menuButton = $('#menu_button_container');
         const logoutButton = $('#logout_sidebar_link');
-        assert.isOk(await menuButton.isDisplayed());
-        assert.isOk(await logoutButton.isDisplayed())
+        await expect(logoutButton).toBeDisplayed();
+        await expect(menuButton).toBeDisplayed();
     });
     let dataCollection = [1, 2, 3, 4, 5, 6];
     dataCollection.map(data => {
